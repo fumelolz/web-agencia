@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+
+		<style>
+			.profile-edit .profile-detail .user-title {
+				font-size: 1.7em;
+				padding: 10px 0px;
+			}
+			.profile-edit .profile-detail p {
+				padding: 10px 0px;
+				font-size: 1.2em;
+			}
+
+			.profile-edit .profile-detail p a {
+				color: #007bff;
+			}
+			.profile-edit .profile-detail p a:hover {
+				color: #f8b600;
+			}
+		</style>
+
+		<div class="profile-content">
+			<h1>Perfil</h1>
+			<div class="profile-edit">
+				
+				<img src="{% if request.user.profile.avatar %}
+				    {{profile.avatar.url}}
+				{% else %}
+					{% static 'core/img/no-avatar.jpg' %}
+				{% endif %}" alt="">
+				<div class="profile-detail">
+					<h2 class="user-title">{{ profile.user|title }}</h2>
+					<p>{{ profile.bio }}</p>
+					<p>Web Personal: <a href="{{ profile.link.url }}">{{ profile.link }}</a></p>
+					<a href="{% url 'blog-user' profile.user %}">Todos mis blogs</a>
+				</div>
+			</div>
+			<!-- <div class="profile-postlist">
+				<h2>Post list</h2>
+				<table class="content-table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Fecha</th>
+							<th>Acción</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						{% for post in profile.user.user_posts.all %}
+						<tr>
+							<td>{{ post.title }}</td>
+							<td>{{ post.date_posted }}</td>
+							<td><a class="delete-post" href="#">Eliminar</a><a class="edite-post" href="#">Editar Post</a></td>
+						</tr>
+						{% endfor %}	
+						
+					</tbody>
+				</table>
+			</div> -->
+		</div>
+{% endblock content %}

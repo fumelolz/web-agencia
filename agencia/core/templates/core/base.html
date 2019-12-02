@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/abc398fe7c.js" crossorigin="anonymous"></script>
+
+	<!--css-->
+	<link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/slick-theme.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/lightbox.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/jquery.datetimepicker.min.css' %}">
+	<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+	<title>Brabda Tours</title>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<a href="{% url 'home' %}"><h1 class="logo-text"><span>Brabda</span> Tours</h1></a>
+		</div>
+		<i class="fas fa-bars menu-toggle"></i>
+		<ul class="nav">
+		<li><a href="{% url 'home' %}">Home</a></li>
+		<li><a href="{% url 'about' %}">Conocenos</a></li>
+		<li>
+			<a href="{% url 'package-home' %}">
+				Paquetes
+				<i class="fas fa-chevron-down flecha-abajo"></i>
+			</a>
+			<ul>
+				<li><a href="{% url 'package-national' %}">Nacional</a></li>
+				<li><a href="{% url 'package-international' %}">Internacional</a></li>
+			</ul>
+		</li>
+		{% if user.is_authenticated %}
+		    <li><a href="{% url 'blog-home' %}">
+		    	Blog
+		    	<i class="fas fa-chevron-down flecha-abajo"></i>
+		    </a>
+			<ul>
+				<li><a href="{% url 'blog-create' %}"><i class="fas fa-plus"></i> Crear un blog</a></li>
+			</ul>
+		    </li>
+		{% else %}
+			<li><a href="{% url 'blog-home' %}">Blog</a></li>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+		<li>
+			<a href="#">
+			<i class="fas fa-user usuario"></i>
+			{{ user.username|title }}
+			<i class="fas fa-chevron-down flecha-abajo"></i>
+			</a>
+			<ul>
+				<li><a href="{% url 'profile' %}">Ver Perfil</a></li>
+				{% if user.is_staff %}
+				    <li><a href="{% url 'admin:index' %}">Sitio administrador</a></li>
+				{% endif %}
+				<li><a class="logout" href="{% url 'logout' %}">Salir</a></li>
+			</ul>
+		</li>
+		{% else %}    
+		<li><a href="{% url 'login' %}">Sign In</a></li>
+		<li><a href="{% url 'signup' %}">Sign On</a></li>
+		{% endif %}
+		
+	</ul>
+	</header> 
+	
+	<!--Page Wrapper-->
+	<div class="page-wrapper">
+		{% block content %}
+			    
+		{% endblock content %}	
+	</div>
+	<!--//Page Wrapper-->
+
+	<!--============================
+	=            Footer            =
+	=============================-->
+	<div class="footer">
+		<div class="footer-content">
+			<div class="footer-section about">
+				<h1 class="logo-text"><span>Brabda</span> Tours</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eligendi voluptate neque molestias consequatur eaque nostrum culpa amet quisquam, fugit. Lorem ipsum dolor sit amet.</p>
+				<div class="contact">
+					<span><i class="fas fa-phone"></i> &nbsp; 762-101-3519</span>
+					<span><i class="fas fa-envelope"></i> &nbsp; brabdainfo@brabda.com</span>
+				</div>
+				<div class="socials">
+					<a href="http://facebook.com"><i class="fab fa-facebook"></i></a>
+					<a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+					<a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+					<a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+				</div>
+			</div>
+			<div class="footer-section links">
+				<h2>Navegación</h2>
+				<br>
+				<ul>
+					<a href="{% url 'home' %}"><li>Home</li></a>
+					<a href="{% url 'about' %}"><li>Conocenos</li></a>
+					<a href="{% url 'package-home' %}"><li>
+						Paquetes
+						<ul>
+							<a href="{% url 'package-international' %}"><li>Internacional</li></a>
+							<a href="{% url 'package-national' %}"><li>Nacional</li></a>
+						</ul>
+					</li></a>
+					<a href="{% url 'blog-home' %}"><li>Blog</li></a>
+				</ul>
+			</div>
+			<div class="footer-section contact-form">
+				<h2>Contactanos</h2>
+				<br>
+				<form action="{% url 'home' %}" method='POST'>{% csrf_token %} 
+					<input type="email" name="emailContact" class="text-input contact-input" placeholder="Email...">
+					<textarea rows="4" name="message" class="text-input contact-input" placeholder="Tu mensaje..."></textarea>
+					<button type="submit" class="btn btn-big btn-contact">
+						<i class="fas fa-envelope"></i>
+						Enviar
+					</button>
+				</form>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			&copy; Designed by Equipo 5
+		</div>
+	</div>
+	
+	<!--====  End of Footer  ====-->
+	
+	
+	
+	<!--JQuery-->
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script src="{% static 'core/js/jquery.datetimepicker.full.js' %}"></script>
+	<!--Lighbox-->
+	<script src="{% static 'core/js/lightbox.js' %}"></script>
+	<script src="{% static 'core/js/script.js' %}"></script>
+
+
+	<!--Slick js Carousel-->
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+
+</body>
+</html>

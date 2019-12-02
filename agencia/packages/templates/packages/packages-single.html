@@ -1,0 +1,83 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+
+		<div class="info-package">
+			<img src="{{ object.image.url }}" alt="">
+			<div class="info">
+				<h2 class="info-title">{{ object.title }}</h2>
+				<p>{{ object.content }}</p>
+				<a href="#galeria" class="btn-package btn-grande">Galeria de imagenes</a>
+			</div>	
+
+		</div>
+
+		<div class="prices-content">
+
+			<div class="price-table">
+				<div class="price-title price-red">
+					<div class="price price-red-2">
+						<h1>$60</h1>
+					</div>
+					<h1>BASIC</h1>
+					<div class="price-info">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. ¿! Lorem ipsum.</p>
+					</div>
+				</div>
+				<ul>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li> 
+					<li><i class="fas fa-times equis"></i><span>Cena</span></li>
+				</ul>
+			</div>
+			<div class="price-table">
+				<div class="price-title price-blue">
+					<div class="price price-blue-2">
+						<h1>$60</h1>
+					</div>
+					<h1>PREMIUM</h1>
+					<div class="price-info">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. ¿! Lorem ipsum.</p>
+					</div>
+				</div>
+				<ul>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li> 
+					<li><i class="fas fa-times equis"></i><span>Cena</span></li>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li> 
+					<li><i class="fas fa-times equis"></i><span>Cena</span></li>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li>
+					<li><i class="fas fa-times equis"></i><span>Cena</span></li>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li> 
+					<li><i class="fas fa-times equis"></i><span>Cena</span></li>
+				</ul>
+			</div>
+			<div class="price-table">
+				<div class="price-title price-yellow">
+					<div class="price price-yellow-2">
+						<h1>$1200</h1>
+					</div>
+					<h1>DELUXE</h1>
+					<div class="price-info">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. ¿! Lorem ipsum.</p>
+					</div>
+				</div>
+				<ul>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li> 
+					<li><i class="fas fa-times equis"></i><span>Cena</span></li>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li> 
+					<li><i class="fas fa-times equis"></i><span>Cena</span></li>
+					<li><i class="fas fa-check palomita"></i><span>Seguro</span></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="gallery-content" id="galeria">
+			<h1>Galeria de imagenes</h1>
+			<div class="gallery">
+				{% for image in object.img.all %}
+				<a href="{{ image.image.url }}" data-lightbox="mygallery"><img src="{{ image.image.url }}"></a>
+				{% endfor %}	
+			</div>
+		</div>
+		
+{% endblock content %}

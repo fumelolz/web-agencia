@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="blog-create-content">
+	<h1>Crear blog</h1>
+	<div class="create-content">
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form.as_p|safe }}
+			<button class="btn-create" type="submit">Crear</button>
+		</form>
+	</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+		<div class="profile-content">
+			<h1>Perfil</h2>
+			<div class="profile-edit">
+				
+				<img src="{% if user.profile.avatar %}
+				    {{user.profile.avatar.url}}
+				{% else %}
+					{% static 'core/img/no-avatar.jpg' %}
+				{% endif %}" alt="">
+				<form method="POST">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<button class="btn-actualizar" type="submit">Actualizar</button>
+					<p style="margin-top: 20px;"><a style="color: red!important; font-size: 1.2em!important;" href="{% url 'profile' %}">Cancelar</a></p>
+				</form>
+
+			</div>
+		</div>
+{% endblock content %}

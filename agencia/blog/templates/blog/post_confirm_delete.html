@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="blog-create-content">
+	<h1>Eliminar blog</h1>
+	<div class="create-content">
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<p class="text-delete">Recuerda que se eliminara permanentemente. <br>
+			Estas seguro de elminar el blog?</p>
+			<div class="btn-group clearfix">
+				<button class="btn-cancel" type="submit"><a href="{% url 'blog-home' %}">Cancelar</a></button>
+
+				<button class="btn-delete" type="submit">Eliminar</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,84 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+	.content {
+		height: 360vh;
+	}
+</style>
+
+	<!--=============================
+	=            Content            =
+	==============================--> 
+	<div class="content clearfix">
+
+		<!-- Main Content -->
+		<div class="main-content single">
+			
+			<img src="  
+			{% if object.image %}
+			    {{ object.image.url }}
+			{% else %}
+				{% static 'core/img/noimage.png' %}
+			{% endif %}
+			" class="blog-single-image" alt="">
+
+			<h1 class="post-title">{{ object.title|title }}</h1>
+			<div class="info">
+				<i class="fas fa-user" style="margin-right: 20px">  {{ object.author }}</i>
+				&nbsp;
+				<i class="fas fa-calendar" style="margin-right: 5px">  {{ object.date_posted }}</i>
+				&nbsp;
+				<i class="fas fa-eye" style="margin-right: 5px">  {{ object.views }}</i>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				{% if  object.author_id == request.user.id %}
+				    <a style="color: red;" href="{% url 'blog-delete' object.pk %}">Eliminar</a>
+					&nbsp;
+					<a style="color: blue;" href="{% url 'blog-update' object.pk %}">Editar</a>
+				{% endif %}
+			</div>
+
+			<div class="post-content">
+				{{ object.content|safe }}</p>
+			</div>
+
+		</div>
+		<!-- //Main Content -->
+
+
+		<!--SideBar-->
+		<div class="sidebar single">
+			<div class="section popular">
+				<h2 class="section-title">Blogs Populares</h2>
+				{% for list in post_views_list %}
+				<div class="post clearfix">
+					<img src=" 
+					{% if list.image %}
+					{{ list.image.url }}
+					{% else %}
+					{% static 'core/img/noimage.png' %}
+					{% endif %}
+					" alt="">
+					<a href="{% url 'blog-detail' list.id %}" class="title"><h4>{{ list.title }}</h4></a>
+					<p>{{ list.content|truncatewords:10 }}</p>
+				</div>
+				{% endfor %}
+			</div>
+
+			<div class="section topics">
+				<h2 class="section-title">Categorias</h2>
+				<ul>
+					{% for category in categories %}
+						<li><a href="{% url 'blog-category' category.name %}">{{ category.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+
+		</div>
+		<!--//SideBar-->
+
+	</div>
+	<!--====  End of Content  ====-->
+
+{% endblock content %}

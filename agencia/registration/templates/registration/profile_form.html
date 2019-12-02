@@ -1,0 +1,47 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+		<div class="profile-content">
+			<h1>Perfil</h2>
+			<div class="profile-edit">
+				
+				<img src="{% if request.user.profile.avatar %}
+				    {{user.profile.avatar.url}}
+				{% else %}
+					{% static 'core/img/no-avatar.jpg' %}
+				{% endif %}" alt="">
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<input type="email" value="{{ user.email }}" readonly="">
+					<p style="margin: 15px 0;">Deseas cambiar tu email? Haz click <a href="{% url 'profile_email' %}">Aquí</a><!-- <br>
+						Deseas cambiar tu contraseña? Haz click <a href="{% url 'password_change' %}">Aquí</a> --></p>
+					<button class="btn-actualizar" type="submit">Actualizar</button>
+				</form>
+			</div>
+			<!-- <div class="profile-postlist">
+				<h2>Post list</h2>
+				<table class="content-table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Fecha</th>
+							<th>Acción</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						{% for post in user.user_posts.all %}
+						<tr>
+							<td>{{ post.title }}</td>
+							<td>{{ post.date_posted }}</td>
+							<td><a class="delete-post" href="#">Eliminar</a><a class="edite-post" href="#">Editar Post</a></td>
+						</tr>
+						{% endfor %}	
+						
+					</tbody>
+				</table>
+			</div> -->
+		</div>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+		
+		<div class="content-packages">
+			<h1 class="packages-title">Paquetes internacionales</h1>
+			<h3 class="packages-subtitle">Disfruta de los mejores viajes</h3>
+			<div class="packages-wrapper">
+
+				{% for package in packages %}
+				<div class="package">
+					<img src="{{ package.image.url }}" alt="">
+					<div class="package-info">
+						<h2 class="package-info-title">{{ package.title }}</h2>
+						<h4>{% for pais in package.country.all %}
+							{{ pais.name }}
+						{% endfor %}</h4>
+						<ul>
+							<li><span class="left">Agregado</span> <span class="right">18 May, 2017</span></li>
+							<li>Extras <span>Todo incluido</span></li>
+						</ul>
+					</div>
+					<a href="{% url 'package-detail' package.id %}" class="btn-package">Ver información  <i class="fas fa-chevron-right"></i></a>
+				</div>
+				{% endfor %}
+			</div>
+
+			<div class="block-pagination clearfix">
+				<ul class="pagination packages-pagination">
+					{% if is_paginated %}
+					{% if page_obj.has_previous %}
+					<li class="page-item"><a href="?page=1" class="page-link">First</a></li>
+					<li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link"><i class="fas fa-chevron-left"></i></a></li>
+					{% endif %}
+					{% for i in page_obj.paginator.page_range %}
+					{% if page_obj.number == i %}
+					<li class="page-item active-page-number"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+					{% elif i > page_obj.number|add:'-4' and i < page_obj.number|add:'4' %}
+					<li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+					{% endif %}
+					{% endfor %}
+					{% if page_obj.has_next %}
+					<li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"><i class="fas fa-chevron-right"></i></a></li>
+					<li class="page-item"><a href="?page={{ page_obj.paginator.num_pages }}" class="page-link">Last</a></li>
+					{% endif %}
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+{% endblock content %}
