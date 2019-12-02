@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on localhost:8080
+From: webmaster@localhost
+To: dany_magadan@hotmail.com
+Date: Sat, 09 Nov 2019 03:19:05 -0000
+Message-ID: <157326954569.8272.4926324191113602134@Magadan.lan>
+
+
+You're receiving this email because you requested a password reset for your user account at localhost:8080.
+
+Please go to the following page and choose a new password:
+
+http://localhost:8080/accounts/reset/MQ/5b9-9b978a4b9f117909e058/
+
+Your username, in case you've forgotten: magadan
+
+Thanks for using our site!
+
+The localhost:8080 team
+
+
+
+-------------------------------------------------------------------------------

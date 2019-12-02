@@ -1,0 +1,27 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?Restablecimiento_de_la_contrase=C3=B1a_en_localhost=3A8080_?=
+From: webmaster@localhost
+To: ard_badboy@hotmail.com
+Date: Wed, 20 Nov 2019 18:50:54 -0000
+Message-ID: 
+ <157427585424.3340.15093577031259563905@Magadan.itzacatepec.edu.mx>
+
+
+Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en localhost:8080.
+
+Por favor visite la página que se muestra a continuación y elija una nueva contraseña:
+
+http://localhost:8080/accounts/reset/MjE/5bl-35389e588457ca739927/
+
+Su nombre de usuario, en caso de haberlo olvidado: abdiel
+
+¡Gracias por usar nuestro sitio!
+
+El equipo de localhost:8080
+
+
+
+-------------------------------------------------------------------------------

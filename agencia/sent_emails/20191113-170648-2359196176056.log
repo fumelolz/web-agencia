@@ -1,0 +1,26 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?Restablecimiento_de_la_contrase=C3=B1a_en_localhost=3A8080_?=
+From: webmaster@localhost
+To: pepe@gmail.cam
+Date: Wed, 13 Nov 2019 23:06:48 -0000
+Message-ID: <157368640822.7504.15699707790049073056@Magadan.rga.ip>
+
+
+Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en localhost:8080.
+
+Por favor visite la página que se muestra a continuación y elija una nueva contraseña:
+
+http://localhost:8080/accounts/reset/MjI/5be-2ef8fd1ad77a1b51f168/
+
+Su nombre de usuario, en caso de haberlo olvidado: pepelosa
+
+¡Gracias por usar nuestro sitio!
+
+El equipo de localhost:8080
+
+
+
+-------------------------------------------------------------------------------

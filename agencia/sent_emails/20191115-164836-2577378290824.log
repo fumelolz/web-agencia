@@ -1,0 +1,26 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?Restablecimiento_de_la_contrase=C3=B1a_en_localhost=3A8080_?=
+From: webmaster@localhost
+To: dany_magadan@hotmail.com
+Date: Fri, 15 Nov 2019 22:48:36 -0000
+Message-ID: <157385811699.1840.12647715917348982442@Magadan.lan>
+
+
+Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en localhost:8080.
+
+Por favor visite la página que se muestra a continuación y elija una nueva contraseña:
+
+http://localhost:8080/accounts/reset/MQ/5bg-85b6af398946aa4ee540/
+
+Su nombre de usuario, en caso de haberlo olvidado: magadan
+
+¡Gracias por usar nuestro sitio!
+
+El equipo de localhost:8080
+
+
+
+-------------------------------------------------------------------------------
